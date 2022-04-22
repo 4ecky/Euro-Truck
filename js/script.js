@@ -52,8 +52,7 @@ document.querySelectorAll('.accordeon').forEach((el) => {
 
 // МЕНЮ БУРГЕР
 const iconMenu = document.querySelector('.burger');
-const closeMenu = document.querySelector('.header-top__close-menu')
-
+const closeMenu = document.querySelector('.header-bottom__close-menu')
 const menuBody = document.querySelector('.header-top__inner');
 const menuBodyBottom = document.querySelector('.header-bottom__menu');
 if (iconMenu) {
@@ -61,7 +60,7 @@ if (iconMenu) {
   iconMenu.addEventListener('click', function (e) {
 
     iconMenu.classList.toggle('_active');
-
+    closeMenu.classList.add('_active');
     menuBody.classList.toggle('_active');
     menuBodyBottom.classList.toggle('_active');
 
@@ -72,6 +71,7 @@ if (iconMenu) {
     menuBody.classList.remove('_active');
     menuBodyBottom.classList.remove('_active');
     document.body.classList.toggle('lock');
+    closeMenu.classList.remove('_active');
   });
 }
 // Прокрутка при клике
