@@ -417,7 +417,9 @@
 }
 
 @media (max-width: 375px) {
-
+  .header-top__inner{
+    background-image: none;
+  }
   /* .....................SERVICES */
   .services__inner {
     margin: 50px auto 30px;
