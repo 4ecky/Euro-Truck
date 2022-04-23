@@ -51,60 +51,56 @@ document.querySelectorAll('.accordeon').forEach((el) => {
 })
 
 // МЕНЮ БУРГЕР
-const iconMenu = document.querySelector('.burger');
-const closeMenu = document.querySelector('.header-bottom__close-menu')
-const menuBody = document.querySelector('.header-top__inner');
-const menuBodyBottom = document.querySelector('.header-bottom__menu');
-if (iconMenu) {
+const burger = document.querySelector('.burger');
+const menuNav = document.querySelector('.header-bottom__menu');
+const navLink = document.querySelectorAll('.header-bottom__menu-link');
+const menuClose = document.querySelector('.header-bottom__close-menu');
+// доп в меню
+let topMenu = document.querySelector('.header-top__inner');
 
-  iconMenu.addEventListener('click', function (e) {
+burger.addEventListener('click', mobileMenu);
 
-    iconMenu.classList.toggle('_active');
-    closeMenu.classList.add('_active');
-    menuBody.classList.toggle('_active');
-    menuBodyBottom.classList.toggle('_active');
-
-    document.body.classList.toggle('lock');
-  });
-  // Меню закрывается
-  closeMenu.addEventListener('click', function () {
-    menuBody.classList.remove('_active');
-    menuBodyBottom.classList.remove('_active');
-    document.body.classList.toggle('lock');
-    closeMenu.classList.remove('_active');
-  });
+function mobileMenu() {
+  burger.classList.toggle('_active');
+  menuNav.classList.toggle('_open');
+  menuClose.classList.add('_active');
+  topMenu.classList.add('_active');
+  document.body.classList.add('_lock');
 }
-// Прокрутка при клике
-const menuLinks = document.querySelectorAll('.header-bottom__menu-link[data-goto]');
-if (menuLinks.length > 0) {
-  menuLinks.forEach(menuLink => {
-    menuLink.addEventListener('click', onMenuLinkClick);
-  });
+// при нажатии на X, меню закрывается 
+menuClose.addEventListener('click', closeMenu);
 
-  // Пишем функцию onMenuLinkClick
-  function onMenuLinkClick(e) {
-    const menuLink = e.target;
+function closeMenu() {
+  burger.classList.toggle('_active');
+  menuNav.classList.toggle('_open');
+  menuClose.classList.remove('_active');
+  topMenu.classList.remove('_active');
+  document.body.classList.remove('_lock');
+}
+// при нажатии на ссылку, меню закрывается
+navLink.forEach(n => n.addEventListener('click', closeMenuForLink));
 
-    if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+function closeMenuForLink() {
+  burger.classList.toggle('_active');
+  menuNav.classList.toggle('_open');
+  menuClose.classList.remove('_active');
+  topMenu.classList.remove('_active');
+  document.body.classList.remove('_lock');
+}
 
-      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
+// плавная прокрутка к разделам
+const anchors = document.querySelectorAll('a[href*="#"]');
 
-
-      if (iconMenu.classList.contains('_active')) {
-
-        iconMenu.classList.remove('_active');
-        menuBody.classList.remove('_active');
-        menuBodyBottom.classList.remove('_active');
-        document.body.classList.remove('lock');
-      }
-
-      // прокручивается к нужному месту
-      window.scrollTo({
-        top: gotoBlockValue,
-        behavior: 'smooth'
-      });
-      e.preventDefault();
-    }
-  }
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (event) {
+    event.preventDefault();
+    menuClose.classList.remove('_active');
+    topMenu.classList.remove('_active');
+    document.body.classList.remove('_lock');
+    const blockID = anchor.getAttribute('href');
+    document.querySelector('' + blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  })
 }

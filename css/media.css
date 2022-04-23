@@ -18,14 +18,6 @@
     max-width: 750px;
   }
 
-  body.lock .burger {
-    display: none;
-  }
-
-  body.lock .logo {
-    display: none;
-  }
-
   .burger {
     display: block;
   }
@@ -38,12 +30,13 @@
     width: 100%;
     height: 100%;
     padding: 17px 10px 0px 10px;
-    background-color: rgba(51, 51, 51, .7);
     margin-top: 0;
-    z-index: 19;
+    z-index: 10;
     flex-wrap: wrap;
     transition: all .2s linear;
+    background: rgba(0, 0, 0, .9);
   }
+
   .header-top__inner._active {
     top: 0;
     flex-direction: column;
@@ -53,7 +46,7 @@
   .header-top__inner,
   .header-top__adress-title {
     color: #fefefe;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .header-top__address {
@@ -93,23 +86,6 @@
     color: #fefefe;
   }
 
-  .header-top__inner {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 17px 10px 0px 10px;
-    background-color: rgba(0, 0, 0, .9);
-    background-image: url('../img/logo_2.png');
-    background-repeat: no-repeat;
-    background-position: 100% 5%;
-    margin-top: 0;
-    z-index: 19;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
   .button {
     font-size: calc(26px + (10 + 10 * 0.7) * ((100vw - 320px) / 1220));
   }
@@ -121,32 +97,38 @@
   /* ..........HEADER__BOTTOM */
   .header-bottom__menu {
     position: fixed;
+    width: 100%;
+    height: 100%;
     top: -100%;
     left: 0;
-    z-index: 20;
+    z-index: 11;
+    overflow: auto;
+    background-image: url('../img/logo_2.png');
+    background-repeat: no-repeat;
+    background-position: 100% 5%;
   }
 
-  .header-bottom__menu._active {
-    top: 30%;
+  .header-bottom__menu._open {
+    top: 0%;
     width: 100%;
   }
 
   .header-bottom__menu-list {
     flex-direction: column;
     text-align: center;
+    padding-top: 230px;
   }
 
   .header-bottom__menu-item:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-right: 0;
   }
 
   .header-bottom__menu-link {
     color: #fefefe;
-    font-size: calc(36px + 10 * (100vw / 1220));
     text-transform: uppercase;
     line-height: 1.3em;
-
+    font-size: 32px;
   }
 
   /* ..........INTRO */
@@ -242,20 +224,23 @@
     padding-top: 56px;
   }
 
-  .location__text{
+  .location__text {
     margin-right: 0;
   }
+
   /* .....................GALLERY */
   .swiper__gallery {
     margin: 20px 0 56px 0;
   }
 
-  .contacts__form{
+  .contacts__form {
     text-align: center;
   }
-  .contacts__subs{
+
+  .contacts__subs {
     margin: 16px auto 35px;
   }
+
   /* ...................../FOOTER */
   .footer__inner {
     flex-wrap: wrap;
@@ -283,9 +268,11 @@
   .footer__title {
     margin-bottom: 5px;
   }
+
   .footer__list-link--menu {
     text-transform: uppercase;
   }
+
   .accordeon {
     background-color: rgba(71, 98, 255, 1);
     padding: 15px;
@@ -356,8 +343,10 @@
     border-radius: 3px;
   }
 
-  .header-top__inner {
-    background-position: 100% 95%;
+  /* .....................HEADER-BOTTOM */
+
+  .header-bottom__menu {
+    background-position: 50% 95%;
   }
 
   /* .....................SERVICES */
@@ -383,15 +372,20 @@
 }
 
 @media (max-width: 375px) {
-  .header-top__inner{
-    background-image: none;
+
+  /* .....................HEADER-BOTTOM */
+  .header-bottom__menu {
+    background-position: 50% 95%;
   }
-  .header-top__tel-numbers{
-    display: none;
+
+  .header-bottom__menu._open {
+    top: 0%;
   }
-  .header-bottom__menu._active {
-    top: 25%;
+
+  .header-bottom__menu-list {
+    padding-top: 190px;
   }
+
   /* .....................SERVICES */
   .services__inner {
     margin: 50px auto 30px;
@@ -414,9 +408,19 @@
     font-size: calc(26px + (10 + 10 * 0.7) * ((100vw - 320px) / 1220));
   }
 
-  .header-bottom__menu-link {
-    /* font-size: 36px; */
-    font-size: calc(36px + (10 + 10 * 0.7) * ((100vw - 320px) / 1220));
+  .header-bottom__menu {
+    background-image: none;
+  }
+
+  .header-bottom__menu-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  .header-bottom__menu-link{
+    font-size: 30px;
+  }
+  .header-bottom__close-menu {
+    margin: 30px auto 0;
+
   }
 
   /* .....................INTRO */

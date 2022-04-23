@@ -95,10 +95,15 @@ body {
   color: #333;
 }
 
-body.lock {
+body._lock {
   overflow: hidden;
 }
-
+body._lock .logo__link {
+  display: none;
+}
+body._lock .burger{
+  display: none;
+}
 .container {
   width: 100%;
   max-width: 1220px;
@@ -189,13 +194,13 @@ body.lock {
 /* ...........HEADER-BOTTOM */
 .header-bottom__close-menu {
   display: none;
+  margin: 40px auto 0;
 }
 .header-bottom__close-menu._active{
   position: relative;
   display: block;
   width: 40px;
   height: 40px;
-  margin: 40px auto 0;
 }
 .header-bottom__close-menu:before,
 .header-bottom__close-menu:after{
