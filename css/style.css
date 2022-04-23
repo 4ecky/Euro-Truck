@@ -182,7 +182,6 @@ body._lock .burger{
   left: 0;
   background-image: url('/img/header/tel.svg');
 }
-
 .header-top__tel-number {
   display: block;
   color: rgba(51, 51, 51, .7);

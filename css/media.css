@@ -373,6 +373,11 @@
 
 @media (max-width: 375px) {
 
+  /* .....................HEADER-TOP */
+  .header-top__tel-numbers {
+    display: none;
+  }
+
   /* .....................HEADER-BOTTOM */
   .header-bottom__menu {
     background-image: none;
@@ -411,9 +416,11 @@
   .header-bottom__menu-item:not(:last-child) {
     margin-bottom: 20px;
   }
-  .header-bottom__menu-link{
+
+  .header-bottom__menu-link {
     font-size: 30px;
   }
+
   .header-bottom__close-menu {
     margin: 30px auto 0;
 
