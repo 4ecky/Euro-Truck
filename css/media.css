@@ -388,9 +388,11 @@
   }
 
   .header-bottom__menu-list {
-    padding-top: 190px;
+    padding-top: 170px;
   }
-
+  .header-bottom__close-menu {
+    margin: 50px auto 0;
+  }
   /* .....................SERVICES */
   .services__inner {
     margin: 50px auto 30px;
@@ -419,11 +421,6 @@
 
   .header-bottom__menu-link {
     font-size: 30px;
-  }
-
-  .header-bottom__close-menu {
-    margin: 30px auto 0;
-
   }
 
   /* .....................INTRO */
