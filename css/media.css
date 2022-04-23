@@ -375,7 +375,7 @@
 
   /* .....................HEADER-BOTTOM */
   .header-bottom__menu {
-    background-position: 50% 95%;
+    background-image: none;
   }
 
   .header-bottom__menu._open {
@@ -406,10 +406,6 @@
   .button {
     /* font-size: 26px; */
     font-size: calc(26px + (10 + 10 * 0.7) * ((100vw - 320px) / 1220));
-  }
-
-  .header-bottom__menu {
-    background-image: none;
   }
 
   .header-bottom__menu-item:not(:last-child) {
